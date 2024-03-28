@@ -1212,7 +1212,7 @@ GameObject:
   - component: {fileID: 1014961630}
   - component: {fileID: 1014961629}
   m_Layer: 3
-  m_Name: Cat2
+  m_Name: CatDeux
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
