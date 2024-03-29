@@ -21,6 +21,7 @@ public class sc_BouleDeFeuDéplacement : MonoBehaviour
         gameObject.transform.position = startPoint.transform.position;
         this.DirectionPlayer = DirectionPlayer;
         this.BouleDeFeuSpeed = BouleDeFeuSpeed;
+
         
     }
 
