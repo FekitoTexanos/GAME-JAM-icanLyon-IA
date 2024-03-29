@@ -5,7 +5,7 @@ using UnityEngine;
 public class sc_PlatformMovement : MonoBehaviour
 {
 
-    private bool is_okmove;
+    private bool is_okmove = true;
     public float speed;
     public Vector3 destination1;
     public Vector3 destination2;
@@ -14,7 +14,7 @@ public class sc_PlatformMovement : MonoBehaviour
     {
         
         
-            if (is_okmove)
+            if (is_okmove == true)
             {
                 //On vient affecter à l'object une nouvelle poistion, celle de Destination1 et on lui demande de s'y rendre depuis sa position actuel
                 //à une certaine vitesse grace à la fonction MoveTowards.
@@ -23,7 +23,7 @@ public class sc_PlatformMovement : MonoBehaviour
                 destination1, speed * Time.deltaTime);
 
             }
-            if (!is_okmove)
+        if (is_okmove == false)
             {
                 //On vient affecter à l'object une nouvelle poistion, celle de Destination2 et on lui demande de s'y rendre depuis sa position actuel
                 //à une certaine vitesse grace à la fonction MoveTowards.
@@ -32,13 +32,15 @@ public class sc_PlatformMovement : MonoBehaviour
 
             }
 
-            if(gameObject.transform.position == destination1)
+            if(gameObject.transform.position == destination2)
                 {
                 is_okmove = true;
-                }
-            if (gameObject.transform.position == destination2)
+            Debug.Log("je rentre");
+        }
+            if (gameObject.transform.position == destination1)
                 {
                 is_okmove = false;
+            Debug.Log("je rentre");
                 }
 
 

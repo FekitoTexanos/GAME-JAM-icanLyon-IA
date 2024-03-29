@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private bool is_ok_to_jump = false;
     
 
-    public float speed = 50f;
+    
     
     public float speedJump = 10f;
     public float speedJumpMultiplicar = 1.5f;
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
 
-            rb.velocity = new Vector3(7, rb.velocity.y, 0);
+            rb.velocity = new Vector3(10, rb.velocity.y, 0);
             gameObject.GetComponent<SpriteRenderer>().sprite = KirbyMarcheDroite;
 
         }
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
             {
-            rb.velocity = new Vector3(-7, rb.velocity.y, 0);
+            rb.velocity = new Vector3(-10, rb.velocity.y, 0);
             gameObject.GetComponent<SpriteRenderer>().sprite = KirbyMarcheGauche;
 
         }
