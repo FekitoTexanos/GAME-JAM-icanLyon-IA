@@ -517,7 +517,7 @@ MonoBehaviour:
   currentHealth: 0
   invinsible: 0
   textHP: {fileID: 119323274}
-  GameManager: {fileID: 0}
+  GameManager: {fileID: 1561103016}
 --- !u!1 &272669529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6958197078683126095, guid: cb9ea974e5107b746aca7b4a5bfd039d, type: 3}
