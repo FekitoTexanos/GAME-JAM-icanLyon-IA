@@ -619,6 +619,7 @@ MonoBehaviour:
   currentHealth: 0
   invinsible: 0
   textHP: {fileID: 119323274}
+  GameManager: {fileID: 1561103016}
 --- !u!4 &255399175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3730405187978973674, guid: 706304de32399db45b3c06fa8b49effc, type: 3}
@@ -2540,6 +2541,7 @@ GameObject:
   - component: {fileID: 1561103018}
   - component: {fileID: 1561103020}
   - component: {fileID: 1561103019}
+  - component: {fileID: 1561103021}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2672,6 +2674,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audio_source: {fileID: 1561103019}
   music: {fileID: 8300000, guid: 914b53453fe72c44b907588284e1d01a, type: 3}
+--- !u!114 &1561103021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561103016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf2626154816ae469f13ec028a40b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 175712938}
 --- !u!1 &1634435704
 GameObject:
   m_ObjectHideFlags: 0

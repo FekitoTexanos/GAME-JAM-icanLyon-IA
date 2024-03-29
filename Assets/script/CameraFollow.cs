@@ -12,8 +12,12 @@ using UnityEngine;
 
     void FixedUpdate()
     {
-        Vector3 desiredPosition = new Vector3(target.position.x + offset.x, target.position.y + offset.y, transform.position.z); // Calcul de la position désirée de la caméra
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed); // Lissage du déplacement de la caméra
-        transform.position = smoothedPosition; // Mise à jour de la position de la caméra
+        if (target != null)
+        {
+            Vector3 desiredPosition = new Vector3(target.position.x + offset.x, target.position.y + offset.y, transform.position.z); // Calcul de la position désirée de la caméra
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed); // Lissage du déplacement de la caméra
+            transform.position = smoothedPosition; // Mise à jour de la position de la caméra
+        }
+        
     }
 }
