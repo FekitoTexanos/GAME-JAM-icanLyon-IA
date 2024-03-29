@@ -32,6 +32,15 @@ public class sc_PlatformMovement : MonoBehaviour
 
             }
 
-        
+            if(gameObject.transform.position == destination1)
+                {
+                is_okmove = true;
+                }
+            if (gameObject.transform.position == destination2)
+                {
+                is_okmove = false;
+                }
+
+
     }
 }
