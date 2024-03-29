@@ -54,13 +54,9 @@ public class sc_PointDeVie : MonoBehaviour
         // Implémentez ici le code pour la mort du joueur, tel que la réinitialisation de la scène ou l'affichage d'un écran de fin de jeu
         Destroy(gameObject);
         // Exemple : SceneManager.LoadScene("GameOverScene");
-        StartCoroutine(GameOver());
+        
     }
 
-    public IEnumerator GameOver()
-    {
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("GameOver");
-    }
+    
    
 }
