@@ -25,6 +25,7 @@ public class sc_PointDeVie : MonoBehaviour
         {
             currentHealth -= damageAmount; // Réduire les points de vie actuels du montant de dommages reçus
             Debug.Log("Perte de : " + damageAmount + " hp");
+            StartCoroutine(AnimDmg());
             textHP.text = currentHealth + " PV";
 
             // Vérifier si le joueur est mort
@@ -41,6 +42,7 @@ public class sc_PointDeVie : MonoBehaviour
     {
         currentHealth += healAmount; // Ajouter des points de vie au joueur
         textHP.text = currentHealth + " PV";
+        StartCoroutine(AnimHeal());
 
         // Limiter les points de vie actuels au maximum
         if (currentHealth > maxHealth)
@@ -60,6 +62,28 @@ public class sc_PointDeVie : MonoBehaviour
         
     }
 
-    
-   
+    IEnumerator AnimDmg()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(1);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    IEnumerator AnimHeal()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        
+    }
+
+
 }

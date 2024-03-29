@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float speedJumpMultiplicar = 1.5f;
     public float effectDuration = 5f;
     private float gravityInpluse = 15f;
-
+    private bool is_ok_mur = false;
 
     public Sprite KirbyMarcheDroite;
     public Sprite KirbyMarcheGauche;
@@ -38,14 +38,14 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = KirbyChute;
 
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && is_ok_mur == false)
         {
 
             rb.velocity = new Vector3(10, rb.velocity.y, 0);
             gameObject.GetComponent<SpriteRenderer>().sprite = KirbyMarcheDroite;
 
         }
-        if (Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.D) && is_ok_mur == false)
         {
 
             
@@ -53,13 +53,13 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && is_ok_mur == false)
             {
             rb.velocity = new Vector3(-10, rb.velocity.y, 0);
             gameObject.GetComponent<SpriteRenderer>().sprite = KirbyMarcheGauche;
 
         }
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.A) && is_ok_mur == false)
         {
 
 
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && is_ok_to_jump == true)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && is_ok_to_jump == true && is_ok_mur == false)
         {
 
             rb.AddForce(Vector3.up * speedJump, ForceMode.Impulse);
@@ -121,9 +121,20 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+        
 
 
     }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Mur"))
+        {
+            is_ok_mur = false;
+            Debug.Log("mur nop");
+        }
+    }
+
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -149,8 +160,17 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<sc_PointDeVie>().Heal(1);
 
         }
+        if (other.gameObject.CompareTag("Mur"))
+        {
+            is_ok_mur = true;
+            Debug.Log("mur ok");
+
+        }
 
     }
+   
+
+    
 
     IEnumerator TempsInvinsible()
     {
@@ -170,4 +190,7 @@ public class PlayerMovement : MonoBehaviour
         RemoveJumpBoost();
     }
 
+
+
+    
 }
