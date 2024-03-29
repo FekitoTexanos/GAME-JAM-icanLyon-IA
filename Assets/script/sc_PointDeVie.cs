@@ -11,6 +11,7 @@ public class sc_PointDeVie : MonoBehaviour
     public bool invinsible = false;
     public TextMeshProUGUI textHP;
     
+    public GameObject GameManager;
     void Start()
     {
         currentHealth = maxHealth; // Initialiser les points de vie actuels au maximum au début du jeu
@@ -52,6 +53,8 @@ public class sc_PointDeVie : MonoBehaviour
     void Die()
     {
         // Implémentez ici le code pour la mort du joueur, tel que la réinitialisation de la scène ou l'affichage d'un écran de fin de jeu
+
+        GameManager.GetComponent<sc_LoadGO>().StartGameOver();
         Destroy(gameObject);
         // Exemple : SceneManager.LoadScene("GameOverScene");
         

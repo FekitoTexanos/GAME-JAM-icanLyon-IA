@@ -5,16 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class sc_LoadGO : MonoBehaviour
 {
-
+    private bool is_ok;
     public GameObject player;
 
-    public void Update()
-    {
-        if (!player)
-        {
-            StartGameOver();
-        }
-    }
+   
 
 
     public void StartGameOver()
