@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class sc_PointDeVie : MonoBehaviour
 {
     public int maxHealth = 3; // Nombre maximal de points de vie
     [SerializeField] private int currentHealth; // Points de vie actuels
     public bool invinsible = false;
-
+    public TextMeshProUGUI textHP;
+    
     void Start()
     {
         currentHealth = maxHealth; // Initialiser les points de vie actuels au maximum au début du jeu
+        textHP.text = maxHealth + " PV";
     }
 
     // Méthode pour enlever des points de vie au joueur
@@ -20,6 +23,7 @@ public class sc_PointDeVie : MonoBehaviour
         {
             currentHealth -= damageAmount; // Réduire les points de vie actuels du montant de dommages reçus
             Debug.Log("Perte de : " + damageAmount + " hp");
+            textHP.text = currentHealth + " PV";
 
             // Vérifier si le joueur est mort
             if (currentHealth <= 0)
@@ -34,6 +38,7 @@ public class sc_PointDeVie : MonoBehaviour
     public void Heal(int healAmount)
     {
         currentHealth += healAmount; // Ajouter des points de vie au joueur
+        textHP.text = currentHealth + " PV";
 
         // Limiter les points de vie actuels au maximum
         if (currentHealth > maxHealth)

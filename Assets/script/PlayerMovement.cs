@@ -17,9 +17,13 @@ public class PlayerMovement : MonoBehaviour
     public float effectDuration = 5f;
     private float gravityInpluse = 15f;
 
-    
 
-    
+    public Sprite KirbyMarcheDroite;
+    public Sprite KirbyMarcheGauche;
+    public Sprite KirbyDroite;
+    public Sprite KirbyGauche;
+    public Sprite KirbyChute;
+
 
     public void Start()
     {
@@ -28,16 +32,38 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
+        if (is_ok_to_jump == false)
+        {
+            rb.AddForce(Vector2.down * gravityInpluse * Time.deltaTime, ForceMode.Impulse);
+            gameObject.GetComponent<SpriteRenderer>().sprite = KirbyChute;
+
+        }
         if (Input.GetKey(KeyCode.D))
         {
 
-            rb.velocity = new Vector3(4, rb.velocity.y, 0);
+            rb.velocity = new Vector3(7, rb.velocity.y, 0);
+            gameObject.GetComponent<SpriteRenderer>().sprite = KirbyMarcheDroite;
+
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+
+            
+            gameObject.GetComponent<SpriteRenderer>().sprite = KirbyDroite;
 
         }
 
         if (Input.GetKey(KeyCode.A))
             {
-            rb.velocity = new Vector3(-4, rb.velocity.y, 0);
+            rb.velocity = new Vector3(-7, rb.velocity.y, 0);
+            gameObject.GetComponent<SpriteRenderer>().sprite = KirbyMarcheGauche;
+
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+
+
+            gameObject.GetComponent<SpriteRenderer>().sprite = KirbyGauche;
 
         }
 
@@ -47,11 +73,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector3.up * speedJump, ForceMode.Impulse);
             is_ok_to_jump = false;
         }
-        if ( is_ok_to_jump == false)
-        {
-            rb.AddForce(Vector2.down * gravityInpluse * Time.deltaTime, ForceMode.Impulse);
-
-        }
+        
 
 
         //rb.transform.position = Vector3.MoveTowards(rb.transform.position, new Vector3(0,10,0), gravityInpluse * Time.deltaTime);
@@ -120,7 +142,14 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(TempsInvinsible());
 
         }
-        
+        if (other.gameObject.CompareTag("PowerupHEAL"))
+        {
+
+            Destroy(other.gameObject);
+            gameObject.GetComponent<sc_PointDeVie>().Heal(1);
+
+        }
+
     }
 
     IEnumerator TempsInvinsible()

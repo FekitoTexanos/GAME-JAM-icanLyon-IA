@@ -9,6 +9,7 @@ TagManager:
   - SortEnnemi
   - PowerupJump
   - PowerupInvinsible
+  - PowerupHEAL
   layers:
   - Default
   - TransparentFX
