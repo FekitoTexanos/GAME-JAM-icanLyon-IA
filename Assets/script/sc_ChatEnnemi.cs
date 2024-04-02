@@ -13,7 +13,7 @@ public class sc_ChatEnnemi : MonoBehaviour
 
     private bool is_ok_to_start = true;
 
-
+    public GameObject Scream;
 
 
     private void Update()
@@ -52,10 +52,19 @@ public class sc_ChatEnnemi : MonoBehaviour
             {
 
                 collider.GetComponent<sc_PointDeVie>().TakeDamage(damageScream);
+                StartCoroutine(SpriteScream());
                 
             }
         }
         is_ok_to_start = true;
+    }
+
+    public IEnumerator SpriteScream()
+    {
+        Scream.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        Scream.SetActive(false);
+
     }
 
     // Visualize the scream zone in the Scene view

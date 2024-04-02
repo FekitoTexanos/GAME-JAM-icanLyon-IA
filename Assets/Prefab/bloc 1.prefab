@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1538895174591877026}
   - component: {fileID: 3900530443208649938}
+  - component: {fileID: 5253355626898581485}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Mur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 682135997617502586}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2185268, y: 0.38401502, z: 0}
+  m_LocalPosition: {x: 1.155, y: 0.38401502, z: 0}
   m_LocalScale: {x: 0.2061849, y: 0.3694502, z: 0.32863387}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39,7 +40,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682135997617502586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &5253355626898581485
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682135997617502586}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7225413, y: 1.1557379, z: 0.19999999}
+  m_Center: {x: 0.6713388, y: 0.07786926, z: 0}
 --- !u!1 &5543141294166640904
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,8 +213,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.06923, y: 0.509207, z: 0.20000002}
-  m_Center: {x: 0.03079015, y: 0.400533, z: 0}
+  m_Size: {x: 2.798041, y: 0.45806283, z: 0.20000002}
+  m_Center: {x: 0.037185274, y: 0.42610514, z: 0}
 --- !u!54 &8941376123009044648
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -230,9 +252,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4445996038994909263}
   - component: {fileID: 1350488860427706015}
+  - component: {fileID: 2097694323492510022}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Mur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 6958197078683126095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1082003, y: 0.38401502, z: 0}
+  m_LocalPosition: {x: -0.974, y: 0.38401502, z: 0}
   m_LocalScale: {x: 0.2061849, y: 0.3694502, z: 0.32863387}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -259,7 +282,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6958197078683126095}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -304,3 +327,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &2097694323492510022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958197078683126095}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.7053406, y: 1.1485022, z: 0.19999999}
+  m_Center: {x: -0.85267925, y: 0.07425141, z: 0}

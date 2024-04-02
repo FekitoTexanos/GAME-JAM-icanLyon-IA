@@ -10,6 +10,8 @@ TagManager:
   - PowerupJump
   - PowerupInvinsible
   - PowerupHEAL
+  - Mur
+  - Flag
   layers:
   - Default
   - TransparentFX

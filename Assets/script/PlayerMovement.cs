@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 
@@ -89,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyJumpBoost()
     {
         speedJump *= speedJumpMultiplicar;
+        StartCoroutine(AnimPowerJump());
         
     }
 
@@ -130,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Mur"))
         {
             is_ok_mur = false;
-            Debug.Log("mur nop");
+            
         }
     }
 
@@ -160,10 +162,16 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<sc_PointDeVie>().Heal(1);
 
         }
-        if (other.gameObject.CompareTag("Mur"))
+        if (other.gameObject.CompareTag("Mur") && !other.gameObject.CompareTag("Floor"))
         {
             is_ok_mur = true;
-            Debug.Log("mur ok");
+            
+
+        }
+        if (other.gameObject.CompareTag("Flag"))
+        {
+            Destroy(other.gameObject);
+            SceneManager.LoadScene("Win");
 
         }
 
@@ -175,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator TempsInvinsible()
     {
         gameObject.GetComponent<sc_PointDeVie>().invinsible = true;
+        StartCoroutine(AnimPowerInvinsible());
         Debug.Log("5s d'invinsibilité");
         yield return new WaitForSeconds(effectDuration);
         gameObject.GetComponent<sc_PointDeVie>().invinsible = false;
@@ -189,8 +198,38 @@ public class PlayerMovement : MonoBehaviour
         // Désactive le boost de saut
         RemoveJumpBoost();
     }
+    IEnumerator AnimPowerJump()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        
+    }
+
+    IEnumerator AnimPowerInvinsible()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        
+    }
 
 
 
-    
 }
